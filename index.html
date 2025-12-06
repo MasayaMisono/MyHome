@@ -71,6 +71,12 @@
       font-size: 0.8rem;
       text-transform: uppercase;
       background-color: #faf9f6;
+      transition: background-color 0.2s ease, transform 0.12s ease, box-shadow 0.2s ease;
+    }
+    .nav-buttons a:hover {
+      background-color: #f0e5cf;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
     }
 
     section { margin-top: 40px; }
@@ -109,13 +115,22 @@
 
     a { color: var(--accent); }
 
+    /* ▼▼ ここが改善されたプロフィール写真 ▼▼ */
     img.profile {
       width: 100%;
       max-width: 360px;
+      height: 420px;          /* 横長印象に整える高さ */
+      object-fit: cover;      /* 自然に中央トリミング */
+      object-position: center top; /* 上よりの構図に調整 */
       border-radius: 12px;
       display: block;
       margin: 0 auto 20px;
       box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    img.profile:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.16);
     }
 
     .embed {
@@ -147,7 +162,7 @@
       padding-bottom: 50px;
     }
 
-    /* ▼ ここから追加：MISONO SELECT 用のカードデザイン ▼ */
+    /* ▼ GPT カードデザイン ▼ */
     .work-card {
       margin-top: 18px;
       padding: 16px 18px;
@@ -155,6 +170,11 @@
       background: var(--card);
       border: 1px solid var(--border);
       box-shadow: 0 8px 18px rgba(15, 23, 42, 0.04);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+    .work-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.10);
     }
     .work-card-title {
       font-size: 1rem;
@@ -196,7 +216,10 @@
       background-color: #956f30;
       transform: translateY(-1px);
     }
-    /* ▲ 追加ここまで ▲ */
+
+    html {
+      scroll-behavior: smooth; /* セクションの移動を滑らかに */
+    }
   </style>
 </head>
 <body>
@@ -228,14 +251,6 @@
       <div class="small">
         主な参加作品：VIVANT、半沢直樹、グランメゾン東京、陸王、下町ロケット、花より男子、高校教師 ほか
       </div>
-
-      <div class="pill-row">
-        <span class="pill">選曲</span>
-        <span class="pill">作曲</span>
-        <span class="pill">音楽プロデュース</span>
-        <span class="pill">サウンドデザイン</span>
-        <span class="pill">エッセイ執筆</span>
-      </div>
     </section>
 
     <section id="works">
@@ -251,7 +266,7 @@
         ・高校教師（TBS）<br>
       </div>
 
-      <!-- ▼ ここから追加：MISONO SELECT カード ▼ -->
+      <!-- ▼ GPT CARD ▼ -->
       <div class="work-card">
         <div class="work-card-title">
           🎧 MISONO SELECT — Works Selection AI
@@ -270,10 +285,11 @@
           OPEN GPT
         </a>
       </div>
-      <!-- ▲ 追加ここまで ▲ -->
+      <!-- ▲ GPT CARD ▲ -->
 
     </section>
 
+    <!-- 以下は元のコードと同じ（Music / Writing / Contact / Script） -->
     <section id="music">
       <h2>Music</h2>
       <p class="section-lead">再生ボタンから、音が届きます。</p>
@@ -321,7 +337,6 @@
 
   </div>
 
-  <!-- RSS読み込みスクリプト（rss2json経由） -->
   <script>
   async function loadNoteRSS() {
     const rssUrl = "https://note.com/mm24000/rss";
