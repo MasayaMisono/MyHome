@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>御園雅也 | Official Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0f1115;
+      --card: #181b22;
+      --accent: #e2b36f;
+      --text: #f5f5f5;
+      --muted: #a0a4b0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #25293a 0, #0b0c10 60%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 16px 16px 40px;
+    }
+    header {
+      text-align: center;
+      padding: 40px 8px 24px;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      letter-spacing: 0.12em;
+    }
+    header p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .nav-buttons {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+    .nav-buttons a {
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(226,179,111,0.45);
+      color: var(--accent);
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    section {
+      margin-top: 28px;
+    }
+    section h2 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      border-left: 3px solid var(--accent);
+      padding-left: 10px;
+    }
+    .section-lead {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+    }
+    @media (min-width: 720px) {
+      .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 14px 14px 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+    }
+    .card-title {
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+    .card-meta {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .card-body {
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+    }
+    .card-actions a {
+      display: inline-block;
+      text-decoration: none;
+      font-size: 0.78rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(226,179,111,0.6);
+      color: var(--accent);
+      margin-right: 6px;
+      margin-top: 3px;
+    }
+    .small {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    footer {
+      margin-top: 32px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>御園 雅也</h1>
+      <p>選曲・作曲・音楽プロデュース / ドラマと音の“気配”を編む音楽家</p>
+      <div class="nav-buttons">
+        <a href="#profile">Profile</a>
+        <a href="#music">Music</a>
+        <a href="#writing">Essays</a>
+        <a href="#tools">Web Tools</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </header>
+
+    <section id="profile">
+      <h2>Profile</h2>
+      <p class="section-lead">
+        テレビドラマを中心に、長年にわたり選曲・音楽プロデュースを担当。<br>
+        「物語の呼吸」と「音の立ち上がり」の間合いにこだわり続けています。
+      </p>
+      <div class="small">
+        主なフィールド：ドラマ選曲・楽曲制作・音楽プロデュース・音響相談 など。<br>
+        経歴詳細・作品リストは順次整理中です。
+      </div>
+    </section>
+
+    <section id="music">
+      <h2>Music</h2>
+      <p class="section-lead">
+        デモ音源と、配信中の楽曲へのリンクをまとめています。
+      </p>
+      <div class="cards">
+        <div class="card">
+          <div class="card-title">Demo &amp; Works</div>
+          <div class="card-meta">Streaming / Demo</div>
+          <div class="card-body">
+            制作中のデモやインストゥルメンタル、ドラマ向け楽曲のスケッチなどを公開しています。
+          </div>
+          <div class="card-actions">
+            <!-- サウンドグライド / SoundCloud 等のリンクに差し替え -->
+            <a href="https://example.com/demo" target="_blank" rel="noopener">デモを聴く</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Pandora Project by M</div>
+          <div class="card-meta">DistroKid / 各種配信サービス</div>
+          <div class="card-body">
+            自作曲の配信リンクをまとめています。各ストアでの再生はこちらから。
+          </div>
+          <div class="card-actions">
+            <!-- DistroKidのLinkやSpotifyアーティストページ等に差し替え -->
+            <a href="https://example.com/spotify" target="_blank" rel="noopener">Spotify</a>
+            <a href="https://example.com/apple" target="_blank" rel="noopener">Apple Music</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="writing">
+      <h2>Essays / note</h2>
+      <p class="section-lead">
+        音と記憶、ドラマ制作、AIと音楽、日々の気づきなどをnoteで綴っています。
+      </p>
+      <div class="cards">
+        <div class="card">
+          <div class="card-title">代表エッセイ 1（仮）</div>
+          <div class="card-meta">note</div>
+          <div class="card-body">
+            記事の内容を一行で説明する短い要約を置きます。
+          </div>
+          <div class="card-actions">
+            <a href="https://note.com/xxxx" target="_blank" rel="noopener">noteで読む</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">note 一覧</div>
+          <div class="card-meta">note Profile</div>
+          <div class="card-body">
+            全ての記事はこちらからご覧いただけます。
+          </div>
+          <div class="card-actions">
+            <a href="https://note.com/mm24000" target="_blank" rel="noopener">note プロフィールへ</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tools">
+      <h2>Web Tools</h2>
+      <p class="section-lead">
+        日々の作業や生活のために作った、小さなWeb道具たちです。
+      </p>
+      <div class="cards">
+        <div class="card">
+          <div class="card-title">シール台紙計算ツール</div>
+          <div class="card-meta">Web App / GitHub Pages</div>
+          <div class="card-body">
+            ラベル・シールの台紙レイアウトを計算するためのツールです。
+          </div>
+          <div class="card-actions">
+            <a href="https://example.github.io/sticker-tool" target="_blank" rel="noopener">使ってみる</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">ロット＆賞味期限チェッカー</div>
+          <div class="card-meta">Web App / GitHub Pages</div>
+          <div class="card-body">
+            ロット番号や賞味期限を記録・確認するための簡易チェッカーです。
+          </div>
+          <div class="card-actions">
+            <a href="https://example.github.io/expire-checker" target="_blank" rel="noopener">使ってみる</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="section-lead">
+        お仕事のご相談・お問い合わせなどは、下記よりお願いいたします。
+      </p>
+      <div class="small">
+        メール：<a href="mailto:yourmail@example.com">yourmail@example.com</a><br>
+        ※具体的な案件名・スケジュール感などを書いていただけると助かります。
+      </div>
+    </section>
+
+    <footer>
+      &copy; <!-- 年は適宜変更 -->2025 Masaya Misono
+    </footer>
+  </div>
+</body>
+</html>
