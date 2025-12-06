@@ -14,7 +14,11 @@
       --muted: #6b7280;
       --border: #e2e8f0;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -22,6 +26,7 @@
       color: var(--text);
       line-height: 1.65;
     }
+
     .wrap {
       max-width: 960px;
       margin: 0 auto;
@@ -32,24 +37,31 @@
       text-align: center;
       padding: 40px 8px 24px;
     }
+
     .name-block {
       display: inline-flex;
       flex-direction: column;
       align-items: center;
       gap: 4px;
     }
-    .name-jp {
-      font-size: 2.1rem;
-      letter-spacing: 0.22em;
-      font-weight: 600;
-    }
+
+    /* 英語メイン・日本語サブ */
     .name-en {
-      font-size: 0.92rem;
-      letter-spacing: 0.28em;
+      font-size: 2.2rem;
+      letter-spacing: 0.24em;
+      font-weight: 600;
+      color: var(--text);
       text-transform: uppercase;
-      color: var(--muted);
-      font-weight: 400;
     }
+
+    .name-jp {
+      font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
     header p {
       margin-top: 10px;
       color: var(--muted);
@@ -57,12 +69,13 @@
     }
 
     .nav-buttons {
-      margin-top: 20px;
+      margin-top: 24px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 8px;
     }
+
     .nav-buttons a {
       text-decoration: none;
       padding: 8px 14px;
@@ -74,19 +87,24 @@
       background-color: #faf9f6;
       transition: background-color 0.2s ease, transform 0.12s ease, box-shadow 0.2s ease;
     }
+
     .nav-buttons a:hover {
       background-color: #f0e5cf;
       transform: translateY(-1px);
       box-shadow: 0 4px 10px rgba(0,0,0,0.08);
     }
 
-    section { margin-top: 40px; }
+    section {
+      margin-top: 40px;
+    }
+
     section h2 {
       font-size: 1.1rem;
       margin-bottom: 12px;
       border-left: 3px solid var(--accent);
       padding-left: 10px;
     }
+
     .section-lead {
       font-size: 0.9rem;
       color: var(--muted);
@@ -103,8 +121,9 @@
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin: 10px 0 4px;
+      margin: 16px 0;
     }
+
     .pill {
       border-radius: 999px;
       border: 1px solid rgba(148,163,184,0.7);
@@ -114,25 +133,27 @@
       background: #f9fafb;
     }
 
-    a { color: var(--accent); }
+    a {
+      color: var(--accent);
+    }
 
+    /* プロフィール写真を少し小さく */
     img.profile {
-  width: 75%;
-  max-width: 260px;              /* 全体として少し小さめに */
-  height: auto;                  /* 縦横比は自然に */
-  object-fit: cover;
-  border-radius: 10px;
-  display: block;
-  margin: 24px auto 12px;        /* 上下の余白も少しタイトに */
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
+      width: 75%;
+      max-width: 260px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+      margin: 24px auto 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
 
-img.profile:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.16);
-}
-
+    img.profile:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.16);
+    }
 
     .embed {
       margin: 12px 0 28px;
@@ -145,9 +166,11 @@ img.profile:hover {
       list-style: none;
       padding-left: 0;
     }
+
     ul#note-articles li {
       margin-bottom: 14px;
     }
+
     small.date {
       display: block;
       color: var(--muted);
@@ -172,10 +195,12 @@ img.profile:hover {
       box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
       transition: transform 0.22s ease, box-shadow 0.22s ease;
     }
+
     .work-card:hover {
       transform: translateY(-2px);
       box-shadow: 0 12px 26px rgba(15, 23, 42, 0.10);
     }
+
     .work-card-title {
       font-size: 1rem;
       font-weight: 600;
@@ -184,6 +209,7 @@ img.profile:hover {
       align-items: center;
       gap: 6px;
     }
+
     .work-card-label {
       display: inline-block;
       font-size: 0.7rem;
@@ -194,10 +220,12 @@ img.profile:hover {
       color: var(--muted);
       margin-bottom: 8px;
     }
+
     .work-card p {
       font-size: 0.85rem;
       color: var(--muted);
     }
+
     .work-card-button {
       display: inline-block;
       margin-top: 12px;
@@ -211,6 +239,7 @@ img.profile:hover {
       text-transform: uppercase;
       transition: background-color 0.2s ease, transform 0.1s ease;
     }
+
     .work-card-button:hover {
       background-color: #956f30;
       transform: translateY(-1px);
@@ -221,20 +250,25 @@ img.profile:hover {
       list-style: none;
       padding-left: 0;
     }
+
     .work-list li {
       font-size: 0.9rem;
       margin-bottom: 10px;
       line-height: 1.5;
     }
+
     .work-list a {
       color: var(--accent);
       text-decoration: none;
     }
+
     .work-list a:hover {
       text-decoration: underline;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
   </style>
 </head>
 <body>
@@ -243,22 +277,9 @@ img.profile:hover {
 
     <header>
       <div class="name-block">
-.name-en {
-  font-size: 2.2rem;
-  letter-spacing: 0.24em;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.name-jp {
-  font-size: 0.85rem;
-  font-weight: 400;
-  letter-spacing: 0.15em;
-  color: var(--muted);
-  margin-top: 6px;
-}
-
-</div>
+        <div class="name-en">MASAYA MISONO</div>
+        <div class="name-jp">御園 雅也</div>
+      </div>
 
       <p>選曲・作曲・サウンドデザイン / AI × 音楽創造</p>
 
@@ -290,34 +311,33 @@ img.profile:hover {
         <span class="pill">AI × 音楽研究</span>
       </div>
 
-    <!-- ▼ GPT CARD → Profile直下 ▼ -->
-<div class="work-card">
-  <div class="work-card-title">
-    🎧 MISONO SELECT — Works Selection AI
-  </div>
-  <div class="work-card-label">Original GPT / 選曲AI</div>
-  <p>
-    映像の意図、心理の流れ、演出の呼吸を読み取り、
-    最適な音楽の方向性を即時に提案する AI アシスタント。
-    御園自身の選曲メソッドをもとに、音の「気配」をモデル化した実験です。
-  </p>
+      <!-- ▼ GPT CARD → Profile直下 ▼ -->
+      <div class="work-card">
+        <div class="work-card-title">
+          🎧 MISONO SELECT — Works Selection AI
+        </div>
+        <div class="work-card-label">Original GPT / 選曲AI</div>
+        <p>
+          映像の意図、心理の流れ、演出の呼吸を読み取り、
+          最適な音楽の方向性を即時に提案する AI アシスタント。
+          御園自身の選曲メソッドをもとに、音の「気配」をモデル化した実験です。
+        </p>
 
-  <a class="work-card-button"
-     href="https://chatgpt.com/g/g-68f0b98c89788191b363a71cfe63513b-misono-select-works-selection-ai"
-     target="_blank" rel="noopener">
-    OPEN GPT
-  </a>
+        <a class="work-card-button"
+           href="https://chatgpt.com/g/g-68f0b98c89788191b363a71cfe63513b-misono-select-works-selection-ai"
+           target="_blank" rel="noopener">
+          OPEN GPT
+        </a>
 
-  <div class="small" style="margin-top:12px; line-height:1.55;">
-    使い方の例：<br>
-    ・「静かな緊張から一気に爆発する場面。低音を効かせて」<br>
-    ・「父と息子の和解。温かさと少しの寂しさを」<br>
-    ・「80年代 AOR 風ギターで爽やかな疾走感を」<br><br>
-    ※ご利用には ChatGPT アカウントが必要です。
-  </div>
-</div>
-<!-- ▲ GPT CARD ▲ -->
-
+        <div class="small" style="margin-top:12px; line-height:1.55;">
+          使い方の例：<br>
+          ・「静かな緊張から一気に爆発する場面。低音を効かせて」<br>
+          ・「父と息子の和解。温かさと少しの寂しさを」<br>
+          ・「80年代 AOR 風ギターで爽やかな疾走感を」<br><br>
+          ※ご利用には ChatGPT アカウントが必要です。
+        </div>
+      </div>
+      <!-- ▲ GPT CARD ▲ -->
     </section>
 
     <section id="works">
