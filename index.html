@@ -130,6 +130,15 @@
       background-color: #faf9f6;
     }
 
+    .card-img {
+      margin: -4px -4px 8px;
+    }
+    .card-img img {
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+    }
+
     .small {
       font-size: 0.8rem;
       color: var(--muted);
@@ -241,12 +250,19 @@
         再生ボタンから、音が届きます。
       </p>
 
+      <!-- ✅ SoundCloud 埋め込み：プロフィールページを指定 -->
       <div class="embed">
-        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
-          src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-513098125&color=%23b88a3b&auto_play=false&show_comments=false&hide_related=true&visual=true">
+        <iframe
+          width="100%"
+          height="300"
+          scrolling="no"
+          frameborder="no"
+          allow="autoplay"
+          src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/masaya-misono&color=%23b88a3b&auto_play=false&hide_related=true&show_comments=false&show_user=true&visual=true">
         </iframe>
       </div>
 
+      <!-- ✅ Spotify プレイリスト 埋め込み -->
       <div class="embed">
         <iframe style="border-radius:12px"
           src="https://open.spotify.com/embed/playlist/2FdbcJWkDtE3wMxzvx7C9m?utm_source=generator"
@@ -255,21 +271,50 @@
           loading="lazy">
         </iframe>
       </div>
-
     </section>
 
     <section id="writing">
       <h2>Essays / note</h2>
       <p class="section-lead">note で綴る音の記憶</p>
       <div class="cards">
+        <!-- 代表記事：サムネ付きカード -->
         <div class="card">
+          <div class="card-img">
+            <img src="images/note_ai_music_thumb.jpg" alt="AIと僕らの音楽のこれから">
+          </div>
           <div class="card-title">AIと僕らの音楽のこれから</div>
-          <div class="card-meta">note</div>
+          <div class="card-meta">note / エッセイ</div>
           <div class="card-body">
-            生成AIと音楽の未来を見つめたエッセイ。
+            生成AIと人間の音楽。そのあいだにある違和感と可能性を、現場の目線から辿ったエッセイ。
           </div>
           <div class="card-actions">
-            <a href="https://note.com/mm24000/n/n973e17d8808c" target="_blank" rel="noopener">読む</a>
+            <a href="https://note.com/mm24000/n/n973e17d8808c" target="_blank" rel="noopener">この記事を読む</a>
+          </div>
+
+          <!-- ▼ もしnote公式の「サイトに貼る」で取得したiframeを使いたい場合は、
+               下のコメント部分を置き換えてください（コードをそのまま貼る） -->
+          <!--
+          <div class="embed">
+            ここに note の「サイトに貼る」でコピーした iframe コードを貼り付け
+          </div>
+          -->
+        </div>
+
+        <!-- note全体へのリンクカード（サムネは任意） -->
+        <div class="card">
+          <!-- サムネが用意できたらこのブロックを生かす -->
+          <!--
+          <div class="card-img">
+            <img src="images/note_profile_thumb.jpg" alt="Masaya Misono note">
+          </div>
+          -->
+          <div class="card-title">Masaya Misono on note</div>
+          <div class="card-meta">note / Profile</div>
+          <div class="card-body">
+            「音と記憶」「AIと音楽」「ドラマの裏側」など、さまざまなテーマでエッセイを更新しています。
+          </div>
+          <div class="card-actions">
+            <a href="https://note.com/mm24000" target="_blank" rel="noopener">note 全記事へ</a>
           </div>
         </div>
       </div>
@@ -277,7 +322,7 @@
 
     <section id="contact">
       <h2>Contact</h2>
-      <p class="section-lead">お仕事のご相談はこちらへ</p>
+      <p class="section-lead">お仕事のご相談・お問い合わせはこちらへ</p>
       <div class="small">
         メール：<a href="mailto:mm24000@gmail.com">mm24000@gmail.com</a><br>
       </div>
