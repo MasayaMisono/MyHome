@@ -146,6 +146,57 @@
       color: var(--muted);
       padding-bottom: 50px;
     }
+
+    /* ▼ ここから追加：MISONO SELECT 用のカードデザイン ▼ */
+    .work-card {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 12px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.04);
+    }
+    .work-card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .work-card-label {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background-color: #f9fafb;
+      border: 1px solid rgba(148,163,184,0.7);
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .work-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .work-card-button {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background-color: var(--accent);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: none;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+    .work-card-button:hover {
+      background-color: #956f30;
+      transform: translateY(-1px);
+    }
+    /* ▲ 追加ここまで ▲ */
   </style>
 </head>
 <body>
@@ -199,6 +250,28 @@
         ・花より男子（TBS）<br>
         ・高校教師（TBS）<br>
       </div>
+
+      <!-- ▼ ここから追加：MISONO SELECT カード ▼ -->
+      <div class="work-card">
+        <div class="work-card-title">
+          🎧 MISONO SELECT — Works Selection AI
+        </div>
+        <div class="work-card-label">Original GPT / 選曲AI</div>
+        <p>
+          映像の意図・心理・演出の呼吸を読み取り、最適な音楽の方向性と構成案を即時に提示する GPT ベースの選曲AI。
+          自身の選曲・音楽プロデュースの判断軸をもとに設計しました。
+        </p>
+        <a
+          class="work-card-button"
+          href="https://chatgpt.com/g/g-68f0b98c89788191b363a71cfe63513b-misono-select-works-selection-ai"
+          target="_blank"
+          rel="noopener"
+        >
+          OPEN GPT
+        </a>
+      </div>
+      <!-- ▲ 追加ここまで ▲ -->
+
     </section>
 
     <section id="music">
