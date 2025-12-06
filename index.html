@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>御園 雅也 | Masaya Misono | Official Site</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="御園雅也 | テレビドラマ・映画の選曲・作曲・サウンドデザイン。VIVANT、半沢直樹ほか多数作品参加。AI × 音楽創造にも取り組む公式サイト。">
   <style>
     :root {
       --bg: #f3f4f6;
@@ -115,13 +116,12 @@
 
     a { color: var(--accent); }
 
-    /* ▼▼ ここが改善されたプロフィール写真 ▼▼ */
     img.profile {
       width: 100%;
       max-width: 360px;
-      height: 420px;          /* 横長印象に整える高さ */
-      object-fit: cover;      /* 自然に中央トリミング */
-      object-position: center top; /* 上よりの構図に調整 */
+      height: 420px;
+      object-fit: cover;
+      object-position: center top;
       border-radius: 12px;
       display: block;
       margin: 0 auto 20px;
@@ -147,7 +147,6 @@
     ul#note-articles li {
       margin-bottom: 14px;
     }
-
     small.date {
       display: block;
       color: var(--muted);
@@ -162,14 +161,14 @@
       padding-bottom: 50px;
     }
 
-    /* ▼ GPT カードデザイン ▼ */
+    /* ▼ GPT カード ▼ */
     .work-card {
-      margin-top: 18px;
-      padding: 16px 18px;
+      margin-top: 24px;
+      padding: 18px 20px;
       border-radius: 12px;
       background: var(--card);
       border: 1px solid var(--border);
-      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.04);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
       transition: transform 0.22s ease, box-shadow 0.22s ease;
     }
     .work-card:hover {
@@ -209,7 +208,6 @@
       font-size: 0.8rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      border: none;
       transition: background-color 0.2s ease, transform 0.1s ease;
     }
     .work-card-button:hover {
@@ -217,12 +215,11 @@
       transform: translateY(-1px);
     }
 
-    html {
-      scroll-behavior: smooth; /* セクションの移動を滑らかに */
-    }
+    html { scroll-behavior: smooth; }
   </style>
 </head>
 <body>
+
   <div class="wrap">
 
     <header>
@@ -230,7 +227,7 @@
         <div class="name-jp">御園 雅也</div>
         <div class="name-en">MASAYA MISONO</div>
       </div>
-      <p>選曲・作曲・音楽プロデュース / 映像と音のあいだに「気配」を置く仕事</p>
+      <p>選曲・作曲・サウンドデザイン / AI × 音楽創造</p>
 
       <div class="nav-buttons">
         <a href="#profile">Profile</a>
@@ -245,17 +242,48 @@
       <img src="images/NICHION_006.jpg" class="profile" alt="御園雅也">
       <h2>Profile</h2>
       <p class="section-lead">
-        テレビドラマ・映画の選曲・サウンドデザインを軸に活動する音楽家。<br>
-        パッドによる音楽の立ち上がりを自在に扱い、映像と音のあいだを設計してきました。
+        テレビドラマ・映画の選曲とサウンドデザインを軸に活動する音楽家。<br>
+        パッドによる音の立ち上がりと空気感の設計を武器に、
+        映像と音のあいだに「気配」を生み出し続けてきました。<br><br>
+        近年は、選曲判断の思考プロセスを AI に学習させる研究に取り組み、
+        人間と AI の音楽的共創を探求しています。
       </p>
       <div class="small">
         主な参加作品：VIVANT、半沢直樹、グランメゾン東京、陸王、下町ロケット、花より男子、高校教師 ほか
       </div>
+
+      <div class="pill-row">
+        <span class="pill">選曲</span>
+        <span class="pill">作曲</span>
+        <span class="pill">音楽プロデュース</span>
+        <span class="pill">サウンドデザイン</span>
+        <span class="pill">AI × 音楽研究</span>
+      </div>
+
+      <!-- ▼ GPT CARD → Profile直下 ▼ -->
+      <div class="work-card">
+        <div class="work-card-title">
+          🎧 MISONO SELECT — Works Selection AI
+        </div>
+        <div class="work-card-label">Original GPT / 選曲AI</div>
+        <p>
+          映像の意図、心理の流れ、演出の呼吸を読み取り
+          最適な音楽の方向性を即時に提案する AI アシスタント。
+          「音の気配」を言語化しモデル化する挑戦です。
+        </p>
+        <a class="work-card-button"
+           href="https://chatgpt.com/g/g-68f0b98c89788191b363a71cfe63513b-misono-select-works-selection-ai"
+           target="_blank" rel="noopener">
+          OPEN GPT
+        </a>
+      </div>
+      <!-- ▲ GPT CARD ▲ -->
     </section>
+
 
     <section id="works">
       <h2>Selected Works</h2>
-      <p class="section-lead">関わってきた代表作品です。</p>
+      <p class="section-lead">関わってきた作品の一部です。</p>
       <div class="small">
         ・VIVANT（TBS / 日曜劇場）<br>
         ・半沢直樹（TBS / 日曜劇場）<br>
@@ -265,31 +293,9 @@
         ・花より男子（TBS）<br>
         ・高校教師（TBS）<br>
       </div>
-
-      <!-- ▼ GPT CARD ▼ -->
-      <div class="work-card">
-        <div class="work-card-title">
-          🎧 MISONO SELECT — Works Selection AI
-        </div>
-        <div class="work-card-label">Original GPT / 選曲AI</div>
-        <p>
-          映像の意図・心理・演出の呼吸を読み取り、最適な音楽の方向性と構成案を即時に提示する GPT ベースの選曲AI。
-          自身の選曲・音楽プロデュースの判断軸をもとに設計しました。
-        </p>
-        <a
-          class="work-card-button"
-          href="https://chatgpt.com/g/g-68f0b98c89788191b363a71cfe63513b-misono-select-works-selection-ai"
-          target="_blank"
-          rel="noopener"
-        >
-          OPEN GPT
-        </a>
-      </div>
-      <!-- ▲ GPT CARD ▲ -->
-
     </section>
 
-    <!-- 以下は元のコードと同じ（Music / Writing / Contact / Script） -->
+
     <section id="music">
       <h2>Music</h2>
       <p class="section-lead">再生ボタンから、音が届きます。</p>
@@ -310,33 +316,32 @@
       </div>
     </section>
 
+
     <section id="writing">
       <h2>Writing</h2>
-      <p class="section-lead">note の最新記事が更新されるたびに、ここに現れます。</p>
-      <ul id="note-articles">
-        <li>読み込み中…</li>
-      </ul>
+      <p class="section-lead">note の最新記事がここに更新されます。</p>
+      <ul id="note-articles"><li>読み込み中…</li></ul>
       <p class="small">
-        そのほかのエッセイは
-        <a href="https://note.com/mm24000" target="_blank" rel="noopener">note プロフィールページ</a>
-        からお読みいただけます。
+        その他の記事は <a href="https://note.com/mm24000" target="_blank" rel="noopener">note プロフィール</a> へ。
       </p>
     </section>
 
+
     <section id="contact">
       <h2>Contact</h2>
-      <p class="section-lead">お仕事のご相談・お問い合わせはこちらへ</p>
+      <p class="section-lead">お仕事のご相談はこちらへ</p>
       <div class="small">
         メール：<a href="mailto:mm24000@gmail.com">mm24000@gmail.com</a>
       </div>
     </section>
 
-    <footer>
-      &copy; 2025 Masaya Misono
-    </footer>
+
+    <footer>&copy; 2025 Masaya Misono</footer>
 
   </div>
 
+
+  <!-- RSS 最新記事読込 -->
   <script>
   async function loadNoteRSS() {
     const rssUrl = "https://note.com/mm24000/rss";
@@ -344,44 +349,31 @@
 
     try {
       const res = await fetch(apiUrl);
-      if (!res.ok) throw new Error("HTTP " + res.status);
       const json = await res.json();
-
+      const items = json.items || [];
       const list = document.getElementById("note-articles");
       list.innerHTML = "";
 
-      const items = json.items || [];
-      const maxItems = 10;
-
-      items.slice(0, maxItems).forEach(item => {
-        const title = item.title || "記事";
-        const link = item.link || "#";
-        const pubDate = item.pubDate ? new Date(item.pubDate) : null;
-
+      items.slice(0, 10).forEach(item => {
+        const date = new Date(item.pubDate);
         const li = document.createElement("li");
         li.innerHTML = `
-          <a href="${link}" target="_blank" rel="noopener"
+          <a href="${item.link}" target="_blank" rel="noopener"
              style="color: var(--accent); font-size:0.9rem; text-decoration:none;">
-            ${title}
+            ${item.title}
           </a>
-          <small class="date">
-            ${pubDate ? pubDate.toLocaleDateString("ja-JP") : ""}
-          </small>
+          <small class="date">${date.toLocaleDateString("ja-JP")}</small>
         `;
         list.appendChild(li);
       });
 
-      if (!items.length) {
-        list.innerHTML = "<li>記事が見つかりませんでした。</li>";
-      }
-
-    } catch (e) {
-      console.error("RSS load error:", e);
-      const list = document.getElementById("note-articles");
-      list.innerHTML = "<li>note の記事を読み込めませんでした。</li>";
+      if (!items.length) { list.innerHTML = "<li>記事がありません。</li>"; }
+    } catch(e) {
+      console.error(e);
+      document.getElementById("note-articles").innerHTML =
+        "<li>note記事を読み込めませんでした。</li>";
     }
   }
-
   document.addEventListener("DOMContentLoaded", loadNoteRSS);
   </script>
 
