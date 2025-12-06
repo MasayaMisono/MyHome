@@ -2,41 +2,60 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <title>御園雅也 | Official Site</title>
+  <title>御園雅也 | Masaya Misono | Official Site</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --bg: #0f1115;
-      --card: #181b22;
-      --accent: #e2b36f;
-      --text: #f5f5f5;
-      --muted: #a0a4b0;
+      --bg: #f3f4f6;
+      --card: #ffffff;
+      --accent: #b88a3b;
+      --text: #222222;
+      --muted: #6b7280;
+      --border: #e2e8f0;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #25293a 0, #0b0c10 60%);
+      background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.65;
     }
     .wrap {
       max-width: 960px;
       margin: 0 auto;
-      padding: 16px 16px 40px;
+      padding: 16px 16px 48px;
     }
+
     header {
       text-align: center;
       padding: 40px 8px 24px;
     }
-    header h1 {
-      font-size: 1.9rem;
-      letter-spacing: 0.14em;
+    .name-block {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .name-jp {
+      font-size: 2.1rem;
+      letter-spacing: 0.22em;
+      text-indent: 0.22em;
+      font-weight: 600;
+    }
+    .name-en {
+      font-size: 0.92rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 400;
     }
     header p {
-      margin-top: 8px;
+      margin-top: 10px;
       color: var(--muted);
       font-size: 0.9rem;
     }
+
     .nav-buttons {
       margin-top: 20px;
       display: flex;
@@ -48,45 +67,48 @@
       text-decoration: none;
       padding: 8px 14px;
       border-radius: 999px;
-      border: 1px solid rgba(226,179,111,0.45);
+      border: 1px solid rgba(184,138,59,0.45);
       color: var(--accent);
       font-size: 0.8rem;
-      letter-spacing: 0.06em;
       text-transform: uppercase;
+      background-color: #faf9f6;
     }
-    section {
-      margin-top: 28px;
-    }
+
+    section { margin-top: 36px; }
     section h2 {
       font-size: 1.1rem;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       border-left: 3px solid var(--accent);
       padding-left: 10px;
     }
     .section-lead {
       font-size: 0.9rem;
       color: var(--muted);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
+
     .cards {
       display: grid;
       grid-template-columns: minmax(0, 1fr);
-      gap: 12px;
+      gap: 14px;
     }
     @media (min-width: 720px) {
       .cards {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
+
     .card {
       background: var(--card);
       border-radius: 14px;
-      padding: 14px 14px 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+      padding: 16px 16px 14px;
+      box-shadow: 0 6px 16px rgba(15,23,42,0.06);
+      border: 1px solid var(--border);
     }
     .card-title {
       font-size: 0.95rem;
       margin-bottom: 4px;
+      font-weight: 600;
     }
     .card-meta {
       font-size: 0.75rem;
@@ -95,7 +117,7 @@
     }
     .card-body {
       font-size: 0.85rem;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
     .card-actions a {
       display: inline-block;
@@ -103,41 +125,57 @@
       font-size: 0.78rem;
       padding: 6px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(226,179,111,0.6);
+      border: 1px solid rgba(184,138,59,0.6);
       color: var(--accent);
-      margin-right: 6px;
-      margin-top: 3px;
+      background-color: #faf9f6;
     }
+
     .small {
       font-size: 0.8rem;
       color: var(--muted);
     }
+
     footer {
-      margin-top: 32px;
+      margin-top: 40px;
       text-align: center;
       font-size: 0.75rem;
       color: var(--muted);
     }
-    a { color: var(--accent); }
+
     .pill-row {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin: 6px 0 4px;
+      margin: 10px 0 4px;
     }
     .pill {
       border-radius: 999px;
-      border: 1px solid rgba(160,164,176,0.5);
+      border: 1px solid rgba(148,163,184,0.7);
       padding: 4px 8px;
       font-size: 0.72rem;
       color: var(--muted);
+      background: #f9fafb;
+    }
+
+    a { color: var(--accent); }
+
+    img.profile {
+      width: 100%;
+      max-width: 360px;
+      border-radius: 12px;
+      display: block;
+      margin: 0 auto 20px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
     }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <h1>御園 雅也</h1>
+      <div class="name-block">
+        <div class="name-jp">御園 雅也</div>
+        <div class="name-en">MASAYA MISONO</div>
+      </div>
       <p>選曲・作曲・音楽プロデュース / 映像と音のあいだに「気配」を置く仕事</p>
       <div class="nav-buttons">
         <a href="#what-i-do">What I Do</a>
@@ -149,48 +187,17 @@
       </div>
     </header>
 
-    <section id="what-i-do">
-      <h2>What I Do</h2>
-      <p class="section-lead">
-        テレビドラマを中心に、「物語の呼吸」に寄り添う音づくりを続けています。<br>
-        選曲・作曲・音楽プロデュースに加え、言葉による記録や発信も行っています。
-      </p>
-      <div class="cards">
-        <div class="card">
-          <div class="card-title">選曲 / サウンドデザイン</div>
-          <div class="card-body">
-            日曜劇場をはじめとするドラマ作品にて、シーンごとの音楽設計・選曲・音の「余白」づくりを担当。
-            画とセリフのあいだに、そっと音の気配を置くことを大切にしています。
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-title">作曲・音楽プロデュース</div>
-          <div class="card-body">
-            自作曲・劇伴の制作、アーティストや企画ごとの楽曲プロデュースを行っています。
-            「Pandora Project by M」としての活動も継続中です。
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-title">Writing / Essays</div>
-          <div class="card-body">
-            note にて「音と記憶」「AIと音楽」「現場の手触り」などをテーマにエッセイを執筆。
-            現場で感じてきたことを、少し距離を置いた言葉として残しています。
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section id="profile">
+      <img src="images/profile.jpg" class="profile" alt="御園雅也">
       <h2>Profile</h2>
       <p class="section-lead">
-        テレビドラマ・映画・番組の選曲・音楽コーディネートを軸に活動する音楽家。<br>
-        パッドによる音楽の立ち上がりを自在に扱う独自のメソッドで、映像と音のあいだを設計してきました。
+        テレビドラマ・映画の選曲・サウンドデザインを軸に活動する音楽家。<br>
+        パッドによる音楽の立ち上がりを自在に扱い、映像と音のあいだを設計してきました。
       </p>
       <div class="small">
-        10代からギター・キーボードを手に音楽制作を開始。<br>
+        10代より音楽制作を開始。<br>
         ポストプロダクションの現場に身を置き、ドラマ選曲の世界へ。<br>
-        以来、約◯年にわたり連続ドラマ・単発ドラマ・スペシャルなど、
-        多数の作品で「音の最後の一手」に関わってきました。
+        以来、「音の最後の一手」にこだわり続けています。
       </div>
       <div class="pill-row">
         <span class="pill">選曲</span>
@@ -204,26 +211,27 @@
     <section id="works">
       <h2>Selected Works</h2>
       <p class="section-lead">
-        これまでに関わってきた作品の一部です。<br>
-        詳細な作品リストは、別途整理のうえ掲載予定です。
+        これまでに関わってきた代表作品です。
       </p>
       <div class="cards">
         <div class="card">
           <div class="card-title">ドラマ作品（抜粋）</div>
           <div class="card-meta">TV Drama</div>
           <div class="card-body">
-            ・◯◯◯◯（TBS / 日曜劇場）<br>
-            ・△△△△（連続ドラマ）<br>
-            ・□□□スペシャル　ほか<br><br>
-            ※実際の作品名に差し替えてご利用ください。
+            ・VIVANT（TBS / 日曜劇場）<br>
+            ・半沢直樹（TBS / 日曜劇場）<br>
+            ・グランメゾン東京（TBS / 日曜劇場）<br>
+            ・陸王（TBS / 日曜劇場）<br>
+            ・下町ロケット（TBS / 日曜劇場）<br>
+            ・花より男子（TBS）<br>
+            ・高校教師（TBS）<br>
           </div>
         </div>
         <div class="card">
           <div class="card-title">Other Works</div>
           <div class="card-meta">Film / Program / etc.</div>
           <div class="card-body">
-            映画・単発ドラマ・配信コンテンツ・イベント等の音楽周りにも参加。
-            作品ごとに、選曲／音楽コーディネート／サウンドデザインなど役割は多岐にわたります。
+            映画や単発ドラマ、配信コンテンツなど幅広い領域で音楽に関わっています。
           </div>
         </div>
       </div>
@@ -232,33 +240,28 @@
     <section id="music">
       <h2>Music</h2>
       <p class="section-lead">
-        制作中のデモ音源と、各ストリーミングサービスで配信中の楽曲へのリンクです。
+        配信中の作品と、制作中の音源です。
       </p>
       <div class="cards">
         <div class="card">
-          <div class="card-title">Demo &amp; Works</div>
+          <div class="card-title">Demo & Works</div>
           <div class="card-meta">SoundCloud</div>
           <div class="card-body">
-            インストゥルメンタルや映像用スケッチなど、実験的な音源も含めて公開しています。
+            インストゥルメンタルや映像用スケッチを公開。
           </div>
           <div class="card-actions">
-            <a href="https://on.soundcloud.com/WS1odxIF1odcF5IiPD" target="_blank" rel="noopener">
-              サウンドを聴く
-            </a>
+            <a href="https://on.soundcloud.com/WS1odxIF1odcF5IiPD" target="_blank" rel="noopener">サウンドを聴く</a>
           </div>
         </div>
         <div class="card">
           <div class="card-title">Pandora Project by M</div>
-          <div class="card-meta">Spotify Playlist</div>
+          <div class="card-meta">配信リンク</div>
           <div class="card-body">
-            若い頃のバンド「PANDORA」の記憶を、現在のサウンドで再構成したプロジェクト。<br>
-            配信中のオリジナル曲をまとめたプレイリストです。
+            オリジナル曲のプレイリストです。
           </div>
           <div class="card-actions">
             <a href="https://open.spotify.com/playlist/2FdbcJWkDtE3wMxzvx7C9m?si=J-xXfq5vShWFTl8eA2e3PQ&pi=mVqCjkSOQlKJR"
-               target="_blank" rel="noopener">
-              Spotifyで聴く
-            </a>
+               target="_blank" rel="noopener">Spotifyで聴く</a>
           </div>
         </div>
       </div>
@@ -266,34 +269,26 @@
 
     <section id="writing">
       <h2>Essays / note</h2>
-      <p class="section-lead">
-        note で公開しているエッセイの一部をご紹介します。<br>
-        音と記憶、ドラマ、AI、日々の暮らしの断片などを綴っています。
-      </p>
+      <p class="section-lead">note で公開中のエッセイより</p>
       <div class="cards">
         <div class="card">
-          <div class="card-title">代表エッセイ（例）</div>
+          <div class="card-title">AIと僕らの音楽のこれから</div>
           <div class="card-meta">note</div>
           <div class="card-body">
-            ここに、代表的な記事の概要を一文で書いてください。<br>
-            （例：「音と記憶」をテーマに、昔の音楽体験と現在の仕事を行き来するエッセイ　など）
+            生成AIと音楽。人間が生む音の未来を見つめたエッセイ。
           </div>
           <div class="card-actions">
-            <a href="https://note.com/mm24000" target="_blank" rel="noopener">
-              このエッセイを読む
-            </a>
+            <a href="https://note.com/mm24000/n/n973e17d8808c" target="_blank" rel="noopener">読む</a>
           </div>
         </div>
         <div class="card">
-          <div class="card-title">note 一覧</div>
+          <div class="card-title">note 全記事</div>
           <div class="card-meta">note Profile</div>
           <div class="card-body">
-            すべての記事はこちらからご覧いただけます。
+            その他の記事はこちらから。
           </div>
           <div class="card-actions">
-            <a href="https://note.com/mm24000" target="_blank" rel="noopener">
-              note プロフィールへ
-            </a>
+            <a href="https://note.com/mm24000" target="_blank" rel="noopener">一覧へ</a>
           </div>
         </div>
       </div>
@@ -301,12 +296,9 @@
 
     <section id="contact">
       <h2>Contact</h2>
-      <p class="section-lead">
-        お仕事のご相談・お問い合わせなどは、下記よりお願いいたします。
-      </p>
+      <p class="section-lead">お仕事のご相談・お問い合わせはこちらへ</p>
       <div class="small">
-        メール：<a href="mailto:yourmail@example.com">yourmail@example.com</a><br>
-        ※具体的な案件名・スケジュール感などを書いていただけると助かります。
+        メール：<a href="mailto:mm24000@gmail.com">mm24000@gmail.com</a><br>
       </div>
     </section>
 
