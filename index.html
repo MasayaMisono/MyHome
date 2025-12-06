@@ -161,7 +161,7 @@
       padding-bottom: 50px;
     }
 
-    /* ▼ GPT カード ▼ */
+    /* GPTカード */
     .work-card {
       margin-top: 24px;
       padding: 18px 20px;
@@ -215,6 +215,24 @@
       transform: translateY(-1px);
     }
 
+    /* 代表作リスト */
+    .work-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .work-list li {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    .work-list a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .work-list a:hover {
+      text-decoration: underline;
+    }
+
     html { scroll-behavior: smooth; }
   </style>
 </head>
@@ -248,9 +266,6 @@
         近年は、選曲判断の思考プロセスを AI に学習させる研究に取り組み、
         人間と AI の音楽的共創を探求しています。
       </p>
-      <div class="small">
-        主な参加作品：VIVANT、半沢直樹、グランメゾン東京、陸王、下町ロケット、花より男子、高校教師 ほか
-      </div>
 
       <div class="pill-row">
         <span class="pill">選曲</span>
@@ -260,7 +275,7 @@
         <span class="pill">AI × 音楽研究</span>
       </div>
 
-      <!-- ▼ GPT CARD → Profile直下 ▼ -->
+      <!-- GPT CARD（Profile直下） -->
       <div class="work-card">
         <div class="work-card-title">
           🎧 MISONO SELECT — Works Selection AI
@@ -277,24 +292,26 @@
           OPEN GPT
         </a>
       </div>
-      <!-- ▲ GPT CARD ▲ -->
     </section>
-
 
     <section id="works">
       <h2>Selected Works</h2>
-      <p class="section-lead">関わってきた作品の一部です。</p>
-      <div class="small">
-        ・VIVANT（TBS / 日曜劇場）<br>
-        ・半沢直樹（TBS / 日曜劇場）<br>
-        ・グランメゾン東京（TBS / 日曜劇場）<br>
-        ・陸王（TBS / 日曜劇場）<br>
-        ・下町ロケット（TBS / 日曜劇場）<br>
-        ・花より男子（TBS）<br>
-        ・高校教師（TBS）<br>
-      </div>
-    </section>
+      <p class="section-lead">関わってきた主な作品</p>
 
+      <ul class="work-list">
+        <li><strong><a href="https://www.tbs.co.jp/VIVANT_tbs/" target="_blank" rel="noopener">VIVANT</a></strong>（TBS / 日曜劇場）</li>
+        <li><strong><a href="https://www.tbs.co.jp/hanzawa_naoki/" target="_blank" rel="noopener">半沢直樹</a></strong>（TBS / 日曜劇場）</li>
+        <li><strong><a href="https://www.tbs.co.jp/grandmaisontokyo/" target="_blank" rel="noopener">グランメゾン東京</a></strong>（TBS / 日曜劇場）</li>
+        <li><strong><a href="https://www.tbs.co.jp/rikuou_tbs/" target="_blank" rel="noopener">陸王</a></strong>（TBS / 日曜劇場）</li>
+        <li><strong><a href="https://www.tbs.co.jp/shitamachi_rocket/" target="_blank" rel="noopener">下町ロケット</a></strong>（TBS / 日曜劇場）</li>
+        <li><strong><a href="https://www.tbs.co.jp/hanadan/" target="_blank" rel="noopener">花より男子</a></strong>（TBS）</li>
+        <li><strong><a href="https://www.tbs.co.jp/ko_kyo/" target="_blank" rel="noopener">高校教師</a></strong>（TBS）</li>
+      </ul>
+
+      <p class="small">
+        ※このほか多数の作品に参加しています。詳細な作品歴については、お問い合わせください。
+      </p>
+    </section>
 
     <section id="music">
       <h2>Music</h2>
@@ -316,7 +333,6 @@
       </div>
     </section>
 
-
     <section id="writing">
       <h2>Writing</h2>
       <p class="section-lead">note の最新記事がここに更新されます。</p>
@@ -326,7 +342,6 @@
       </p>
     </section>
 
-
     <section id="contact">
       <h2>Contact</h2>
       <p class="section-lead">お仕事のご相談はこちらへ</p>
@@ -335,13 +350,11 @@
       </div>
     </section>
 
-
     <footer>&copy; 2025 Masaya Misono</footer>
 
   </div>
 
-
-  <!-- RSS 最新記事読込 -->
+  <!-- note RSS 最新記事読込 -->
   <script>
   async function loadNoteRSS() {
     const rssUrl = "https://note.com/mm24000/rss";
@@ -367,7 +380,9 @@
         list.appendChild(li);
       });
 
-      if (!items.length) { list.innerHTML = "<li>記事がありません。</li>"; }
+      if (!items.length) {
+        list.innerHTML = "<li>記事がありません。</li>";
+      }
     } catch(e) {
       console.error(e);
       document.getElementById("note-articles").innerHTML =
