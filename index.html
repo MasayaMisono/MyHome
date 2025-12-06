@@ -16,7 +16,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: --apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.65;
@@ -227,6 +227,11 @@
       <ul id="note-articles">
         <li>読み込み中…</li>
       </ul>
+      <p class="small">
+        そのほかのエッセイは
+        <a href="https://note.com/mm24000" target="_blank" rel="noopener">note プロフィールページ</a>
+        からお読みいただけます。
+      </p>
     </section>
 
     <section id="contact">
@@ -243,45 +248,53 @@
 
   </div>
 
-  <!-- RSS読み込みスクリプト -->
+  <!-- RSS読み込みスクリプト（rss2json経由） -->
   <script>
   async function loadNoteRSS() {
     const rssUrl = "https://note.com/mm24000/rss";
+    const apiUrl = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(rssUrl);
 
     try {
-      const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(rssUrl)}`);
-      const data = await response.json();
-      const parser = new DOMParser();
-      const xml = parser.parseFromString(data.contents, "application/xml");
+      const res = await fetch(apiUrl);
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const json = await res.json();
 
-      const items = xml.querySelectorAll("item");
       const list = document.getElementById("note-articles");
       list.innerHTML = "";
 
+      const items = json.items || [];
       const maxItems = 5;
-      items.forEach((item, index) => {
-        if (index >= maxItems) return;
 
-        const title = item.querySelector("title")?.textContent ?? "記事";
-        const link = item.querySelector("link")?.textContent ?? "#";
-        const date = new Date(item.querySelector("pubDate")?.textContent);
+      items.slice(0, maxItems).forEach(item => {
+        const title = item.title || "記事";
+        const link = item.link || "#";
+        const pubDate = item.pubDate ? new Date(item.pubDate) : null;
 
-        const el = document.createElement("li");
-        el.innerHTML = `
+        const li = document.createElement("li");
+        li.innerHTML = `
           <a href="${link}" target="_blank" rel="noopener"
-            style="color: var(--accent); font-size:0.9rem; text-decoration:none;">
+             style="color: var(--accent); font-size:0.9rem; text-decoration:none;">
             ${title}
           </a>
-          <small class="date">${date.toLocaleDateString("ja-JP")}</small>
+          <small class="date">
+            ${pubDate ? pubDate.toLocaleDateString("ja-JP") : ""}
+          </small>
         `;
-        list.appendChild(el);
+        list.appendChild(li);
       });
+
+      if (!items.length) {
+        list.innerHTML = "<li>記事が見つかりませんでした。</li>";
+      }
+
     } catch (e) {
       console.error("RSS load error:", e);
+      const list = document.getElementById("note-articles");
+      list.innerHTML = "<li>note の記事を読み込めませんでした。</li>";
     }
   }
 
-  loadNoteRSS();
+  document.addEventListener("DOMContentLoaded", loadNoteRSS);
   </script>
 
 </body>
