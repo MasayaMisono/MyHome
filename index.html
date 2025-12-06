@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <title>御園雅也 | Official Portal</title>
+  <title>御園雅也 | Official Site</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
@@ -29,8 +29,8 @@
       padding: 40px 8px 24px;
     }
     header h1 {
-      font-size: 1.8rem;
-      letter-spacing: 0.12em;
+      font-size: 1.9rem;
+      letter-spacing: 0.14em;
     }
     header p {
       margin-top: 8px;
@@ -119,45 +119,128 @@
       color: var(--muted);
     }
     a { color: var(--accent); }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 6px 0 4px;
+    }
+    .pill {
+      border-radius: 999px;
+      border: 1px solid rgba(160,164,176,0.5);
+      padding: 4px 8px;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
       <h1>御園 雅也</h1>
-      <p>選曲・作曲・音楽プロデュース / ドラマと音の“気配”を編む音楽家</p>
+      <p>選曲・作曲・音楽プロデュース / 映像と音のあいだに「気配」を置く仕事</p>
       <div class="nav-buttons">
+        <a href="#what-i-do">What I Do</a>
         <a href="#profile">Profile</a>
+        <a href="#works">Works</a>
         <a href="#music">Music</a>
         <a href="#writing">Essays</a>
-        <a href="#tools">Web Tools</a>
         <a href="#contact">Contact</a>
       </div>
     </header>
 
+    <section id="what-i-do">
+      <h2>What I Do</h2>
+      <p class="section-lead">
+        テレビドラマを中心に、「物語の呼吸」に寄り添う音づくりを続けています。<br>
+        選曲・作曲・音楽プロデュースに加え、言葉による記録や発信も行っています。
+      </p>
+      <div class="cards">
+        <div class="card">
+          <div class="card-title">選曲 / サウンドデザイン</div>
+          <div class="card-body">
+            日曜劇場をはじめとするドラマ作品にて、シーンごとの音楽設計・選曲・音の「余白」づくりを担当。
+            画とセリフのあいだに、そっと音の気配を置くことを大切にしています。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">作曲・音楽プロデュース</div>
+          <div class="card-body">
+            自作曲・劇伴の制作、アーティストや企画ごとの楽曲プロデュースを行っています。
+            「Pandora Project by M」としての活動も継続中です。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Writing / Essays</div>
+          <div class="card-body">
+            note にて「音と記憶」「AIと音楽」「現場の手触り」などをテーマにエッセイを執筆。
+            現場で感じてきたことを、少し距離を置いた言葉として残しています。
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="profile">
       <h2>Profile</h2>
       <p class="section-lead">
-        テレビドラマを中心に、長年にわたり選曲・音楽プロデュースを担当。<br>
-        「物語の呼吸」と「音の立ち上がり」の間合いにこだわり続けています。
+        テレビドラマ・映画・番組の選曲・音楽コーディネートを軸に活動する音楽家。<br>
+        パッドによる音楽の立ち上がりを自在に扱う独自のメソッドで、映像と音のあいだを設計してきました。
       </p>
       <div class="small">
-        主なフィールド：ドラマ選曲・楽曲制作・音楽プロデュース・音響相談 など。<br>
-        経歴詳細・作品リストは順次整理中です。
+        <!-- ここは御園さんの言葉で書き換えてください -->
+        10代からギター・キーボードを手に音楽制作を開始。<br>
+        ポストプロダクションの現場に身を置き、ドラマ選曲の世界へ。<br>
+        以来、約◯年にわたり連ドラ・単発ドラマ・スペシャルなど、
+        多数の作品で「音の最後の一手」に関わってきました。
+      </div>
+      <div class="pill-row">
+        <span class="pill">選曲</span>
+        <span class="pill">作曲</span>
+        <span class="pill">音楽プロデュース</span>
+        <span class="pill">サウンドデザイン</span>
+        <span class="pill">エッセイ執筆</span>
+      </div>
+    </section>
+
+    <section id="works">
+      <h2>Selected Works</h2>
+      <p class="section-lead">
+        これまでに関わってきた作品の一部です。<br>
+        詳細な作品リストは、別途整理のうえ掲載予定です。
+      </p>
+      <div class="cards">
+        <div class="card">
+          <div class="card-title">ドラマ作品（抜粋）</div>
+          <div class="card-meta">TV Drama</div>
+          <div class="card-body">
+            ・◯◯◯◯（TBS / 日曜劇場）<br>
+            ・△△△△（連続ドラマ）<br>
+            ・□□□スペシャル  ほか<br><br>
+            ※実際の作品名に差し替えてご利用ください。
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Other Works</div>
+          <div class="card-meta">Film / Program / etc.</div>
+          <div class="card-body">
+            映画・単発ドラマ・配信コンテンツ・イベント等の音楽周りにも参加。
+            役割は作品ごとに、選曲／音楽コーディネート／サウンドデザインなど多岐にわたります。
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="music">
       <h2>Music</h2>
       <p class="section-lead">
-        デモ音源と、配信中の楽曲へのリンクをまとめています。
+        制作中のデモ音源と、各ストリーミングサービスで配信中の楽曲へのリンクです。
       </p>
       <div class="cards">
         <div class="card">
           <div class="card-title">Demo &amp; Works</div>
           <div class="card-meta">Streaming / Demo</div>
           <div class="card-body">
-            制作中のデモやインストゥルメンタル、ドラマ向け楽曲のスケッチなどを公開しています。
+            インストゥルメンタルや映像用スケッチなど、実験的な音源も含めて公開しています。
           </div>
           <div class="card-actions">
             <!-- サウンドグライド / SoundCloud 等のリンクに差し替え -->
@@ -168,10 +251,11 @@
           <div class="card-title">Pandora Project by M</div>
           <div class="card-meta">DistroKid / 各種配信サービス</div>
           <div class="card-body">
-            自作曲の配信リンクをまとめています。各ストアでの再生はこちらから。
+            若い頃のバンド「PANDORA」の記憶を現在のサウンドで再構成したプロジェクト。<br>
+            各ストアでの再生はこちらから。
           </div>
           <div class="card-actions">
-            <!-- DistroKidのLinkやSpotifyアーティストページ等に差し替え -->
+            <!-- DistroKidのリンクやSpotifyアーティストページ等に差し替え -->
             <a href="https://example.com/spotify" target="_blank" rel="noopener">Spotify</a>
             <a href="https://example.com/apple" target="_blank" rel="noopener">Apple Music</a>
           </div>
@@ -182,14 +266,16 @@
     <section id="writing">
       <h2>Essays / note</h2>
       <p class="section-lead">
-        音と記憶、ドラマ制作、AIと音楽、日々の気づきなどをnoteで綴っています。
+        note で公開しているエッセイの一部をご紹介します。<br>
+        音と記憶、ドラマ、AI、日々の暮らしの断片などを綴っています。
       </p>
       <div class="cards">
         <div class="card">
           <div class="card-title">代表エッセイ 1（仮）</div>
           <div class="card-meta">note</div>
           <div class="card-body">
-            記事の内容を一行で説明する短い要約を置きます。
+            ここに、代表的な記事の概要を一文で書いてください。<br>
+            （例：「音と記憶」をテーマに、昔の音楽体験と現在の仕事を行き来するエッセイ など）
           </div>
           <div class="card-actions">
             <a href="https://note.com/xxxx" target="_blank" rel="noopener">noteで読む</a>
@@ -199,39 +285,10 @@
           <div class="card-title">note 一覧</div>
           <div class="card-meta">note Profile</div>
           <div class="card-body">
-            全ての記事はこちらからご覧いただけます。
+            すべての記事はこちらからご覧いただけます。
           </div>
           <div class="card-actions">
             <a href="https://note.com/mm24000" target="_blank" rel="noopener">note プロフィールへ</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="tools">
-      <h2>Web Tools</h2>
-      <p class="section-lead">
-        日々の作業や生活のために作った、小さなWeb道具たちです。
-      </p>
-      <div class="cards">
-        <div class="card">
-          <div class="card-title">シール台紙計算ツール</div>
-          <div class="card-meta">Web App / GitHub Pages</div>
-          <div class="card-body">
-            ラベル・シールの台紙レイアウトを計算するためのツールです。
-          </div>
-          <div class="card-actions">
-            <a href="https://example.github.io/sticker-tool" target="_blank" rel="noopener">使ってみる</a>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-title">ロット＆賞味期限チェッカー</div>
-          <div class="card-meta">Web App / GitHub Pages</div>
-          <div class="card-body">
-            ロット番号や賞味期限を記録・確認するための簡易チェッカーです。
-          </div>
-          <div class="card-actions">
-            <a href="https://example.github.io/expire-checker" target="_blank" rel="noopener">使ってみる</a>
           </div>
         </div>
       </div>
@@ -249,7 +306,7 @@
     </section>
 
     <footer>
-      &copy; <!-- 年は適宜変更 -->2025 Masaya Misono
+      &copy; 2025 Masaya Misono
     </footer>
   </div>
 </body>
