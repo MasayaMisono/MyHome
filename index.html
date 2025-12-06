@@ -117,21 +117,22 @@
     a { color: var(--accent); }
 
     img.profile {
-      width: 100%;
-      max-width: 360px;
-      height: 420px;
-      object-fit: cover;
-      object-position: center top;
-      border-radius: 12px;
-      display: block;
-      margin: 0 auto 20px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.10);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-    img.profile:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.16);
-    }
+  width: 75%;
+  max-width: 260px;              /* 全体として少し小さめに */
+  height: auto;                  /* 縦横比は自然に */
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: 24px auto 12px;        /* 上下の余白も少しタイトに */
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+img.profile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.16);
+}
+
 
     .embed {
       margin: 12px 0 28px;
