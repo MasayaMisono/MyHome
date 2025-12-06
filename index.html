@@ -5,6 +5,12 @@
   <title>御園 雅也 | Masaya Misono | Official Site</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="御園雅也 | テレビドラマ・映画の選曲・作曲・サウンドデザイン。VIVANT、半沢直樹ほか多数作品参加。AI × 音楽創造にも取り組む公式サイト。">
+
+  <!-- 名前用に Montserrat を読み込み -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg: #f3f4f6;
@@ -47,8 +53,9 @@
 
     /* 英語メイン・日本語サブ */
     .name-en {
-      font-size: 2.2rem;
-      letter-spacing: 0.24em;
+      font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.16em;
       font-weight: 600;
       color: var(--text);
       text-transform: uppercase;
@@ -269,6 +276,14 @@
     html {
       scroll-behavior: smooth;
     }
+
+    /* スマホでの名前調整（1行に収まりやすくする） */
+    @media (max-width: 480px) {
+      .name-en {
+        font-size: 1.6rem;
+        letter-spacing: 0.12em;
+      }
+    }
   </style>
 </head>
 <body>
@@ -364,7 +379,7 @@
       <p class="section-lead">再生ボタンから、音が届きます。</p>
 
       <div class="embed">
-        <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay"
+        <iframe width="100%" height="450" scrolling="no" frameborder="0" allow="autoplay"
           src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A8469991&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
         </iframe>
       </div>
