@@ -1,457 +1,852 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <title>御園 雅也 | Masaya Misono | Official Site</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="御園雅也 | テレビドラマ・映画の選曲・作曲・サウンドデザイン。VIVANT、半沢直樹ほか多数作品参加。AI × 音楽創造にも取り組む公式サイト。">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="御園雅也 | テレビドラマ・映画の選曲・作曲・サウンドデザイン。VIVANT、半沢直樹ほか多数作品参加。AI × 音楽創造にも取り組む公式サイト。">
+<title>御園 雅也 | Masaya Misono</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Serif+JP:wght@200;300;400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
 
-  <!-- 名前用に Montserrat を読み込み -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+/* ── RESET & BASE ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <style>
-    :root {
-      --bg: #f3f4f6;
-      --card: #ffffff;
-      --accent: #b88a3b;
-      --text: #222222;
-      --muted: #6b7280;
-      --border: #e2e8f0;
-    }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+:root {
+  --bg:        #080808;
+  --bg2:       #0f0f0f;
+  --border:    #1e1e1e;
+  --border2:   #2a2a2a;
+  --text:      #d8d4cc;
+  --text-mid:  #888880;
+  --text-dim:  #444440;
+  --white:     #ede9e1;
+  --accent:    #c8a96e;
+  --accent2:   rgba(200,169,110,0.08);
+  --serif-en:  'Cormorant Garamond', serif;
+  --serif-jp:  'Noto Serif JP', serif;
+  --mono:      'DM Mono', monospace;
+}
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-    }
+html { scroll-behavior: smooth; }
 
-    .wrap {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 16px 16px 48px;
-    }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif-jp);
+  font-weight: 300;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
 
-    header {
-      text-align: center;
-      padding: 40px 8px 24px;
-    }
+a { color: inherit; text-decoration: none; }
 
-    .name-block {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-    }
+/* ── GRAIN OVERLAY ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.4;
+}
 
-    /* 英語メイン・日本語サブ */
-    .name-en {
-      font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 2rem;
-      letter-spacing: 0.16em;
-      font-weight: 600;
-      color: var(--text);
-      text-transform: uppercase;
-    }
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 20px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.4s, background 0.4s;
+}
 
-    .name-jp {
-      font-size: 0.9rem;
-      font-weight: 400;
-      letter-spacing: 0.18em;
-      color: var(--muted);
-      margin-top: 6px;
-    }
+nav.scrolled {
+  background: rgba(8,8,8,0.92);
+  border-color: var(--border);
+  backdrop-filter: blur(12px);
+}
 
-    header p {
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
+.nav-logo {
+  font-family: var(--serif-en);
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: var(--white);
+  text-transform: uppercase;
+}
 
-    .nav-buttons {
-      margin-top: 24px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-    }
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
 
-    .nav-buttons a {
-      text-decoration: none;
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(184,138,59,0.45);
-      color: var(--accent);
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      background-color: #faf9f6;
-      transition: background-color 0.2s ease, transform 0.12s ease, box-shadow 0.2s ease;
-    }
+.nav-links a {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--text-mid);
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
 
-    .nav-buttons a:hover {
-      background-color: #f0e5cf;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    }
+.nav-links a:hover { color: var(--white); }
 
-    section {
-      margin-top: 40px;
-    }
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
 
-    section h2 {
-      font-size: 1.1rem;
-      margin-bottom: 12px;
-      border-left: 3px solid var(--accent);
-      padding-left: 10px;
-    }
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 120px 64px 80px 48px;
+  position: relative;
+  z-index: 2;
+}
 
-    .section-lead {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-bottom: 14px;
-    }
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: fadeUp 1s 0.2s forwards;
+}
 
-    .small {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: 8px;
-    }
+.hero-name-en {
+  font-family: var(--serif-en);
+  font-size: clamp(52px, 7vw, 88px);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  opacity: 0;
+  animation: fadeUp 1s 0.4s forwards;
+}
 
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin: 16px 0;
-    }
+.hero-name-jp {
+  font-family: var(--serif-jp);
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 200;
+  letter-spacing: 0.3em;
+  color: var(--text-mid);
+  margin-top: 16px;
+  opacity: 0;
+  animation: fadeUp 1s 0.6s forwards;
+}
 
-    .pill {
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.7);
-      padding: 4px 8px;
-      font-size: 0.72rem;
-      color: var(--muted);
-      background: #f9fafb;
-    }
+.hero-role {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  opacity: 0;
+  animation: fadeUp 1s 0.8s forwards;
+}
 
-    a {
-      color: var(--accent);
-    }
+.hero-role-item {
+  font-family: var(--serif-jp);
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  color: var(--text-mid);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
-    /* プロフィール写真を少し小さく */
-    img.profile {
-      width: 75%;
-      max-width: 260px;
-      height: auto;
-      object-fit: cover;
-      border-radius: 10px;
-      display: block;
-      margin: 24px auto 12px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
+.hero-role-item::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
 
-    img.profile:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.16);
-    }
+.hero-scroll {
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  animation: fadeUp 1s 1.2s forwards;
+}
 
-    .embed {
-      margin: 12px 0 28px;
-      width: 100%;
-      border-radius: 12px;
-      overflow: hidden;
-    }
+.hero-scroll-line {
+  width: 40px;
+  height: 1px;
+  background: var(--text-dim);
+}
 
-    ul#note-articles {
-      list-style: none;
-      padding-left: 0;
-    }
+.hero-scroll-text {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
 
-    ul#note-articles li {
-      margin-bottom: 14px;
-    }
+.hero-right {
+  position: relative;
+  overflow: hidden;
+}
 
-    small.date {
-      display: block;
-      color: var(--muted);
-      font-size: 0.7rem;
-    }
+.hero-image {
+  position: absolute;
+  inset: 0;
+  background: url('https://masayamisono.github.io/MyHome/images/Art-Prof.jpg') center/cover no-repeat;
+  opacity: 0;
+  animation: fadeIn 1.6s 0.3s forwards;
+}
 
-    footer {
-      margin-top: 48px;
-      text-align: center;
-      font-size: 0.75rem;
-      color: var(--muted);
-      padding-bottom: 50px;
-    }
+.hero-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--bg) 0%, transparent 40%),
+              linear-gradient(to top, var(--bg) 0%, transparent 30%);
+}
 
-    /* GPTカード */
-    .work-card {
-      margin-top: 24px;
-      padding: 18px 20px;
-      border-radius: 12px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
-      transition: transform 0.22s ease, box-shadow 0.22s ease;
-    }
+/* ── SECTION BASE ── */
+section {
+  padding: 120px 48px;
+  max-width: 960px;
+  margin: 0 auto;
+}
 
-    .work-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.10);
-    }
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  margin-bottom: 64px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
 
-    .work-card-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
+.section-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+}
 
-    .work-card-label {
-      display: inline-block;
-      font-size: 0.7rem;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background-color: #f9fafb;
-      border: 1px solid rgba(148,163,184,0.7);
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
+.section-title-en {
+  font-family: var(--serif-en);
+  font-size: 32px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--white);
+  letter-spacing: 0.04em;
+}
 
-    .work-card p {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
+.section-title-jp {
+  font-family: var(--serif-jp);
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.16em;
+  color: var(--text-mid);
+}
 
-    .work-card-button {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 8px 16px;
-      border-radius: 999px;
-      background-color: var(--accent);
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: background-color 0.2s ease, transform 0.1s ease;
-    }
+/* ── PROFILE ── */
+.profile-body {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 80px;
+  align-items: start;
+}
 
-    .work-card-button:hover {
-      background-color: #956f30;
-      transform: translateY(-1px);
-    }
+.profile-text p {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 2.1;
+  color: var(--text);
+  letter-spacing: 0.04em;
+  margin-bottom: 28px;
+}
 
-    /* 代表作リスト */
-    .work-list {
-      list-style: none;
-      padding-left: 0;
-    }
+.profile-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 36px;
+}
 
-    .work-list li {
-      font-size: 0.9rem;
-      margin-bottom: 10px;
-      line-height: 1.5;
-    }
+.profile-tag {
+  padding: 6px 14px;
+  border: 1px solid var(--border2);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--text-mid);
+}
 
-    .work-list a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+.profile-aside {
+  border: 1px solid var(--border);
+  padding: 28px;
+}
 
-    .work-list a:hover {
-      text-decoration: underline;
-    }
+.profile-aside-title {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+.profile-aside-desc {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--text-mid);
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+}
 
-    /* スマホでの名前調整（1行に収まりやすくする） */
-    @media (max-width: 480px) {
-      .name-en {
-        font-size: 1.6rem;
-        letter-spacing: 0.12em;
-      }
-    }
-  </style>
+.profile-aside-examples {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.profile-aside-examples li {
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+  padding-left: 14px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.profile-aside-examples li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+.btn-ghost {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid var(--border2);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--text-mid);
+  text-transform: uppercase;
+  transition: border-color 0.2s, color 0.2s;
+  width: 100%;
+  text-align: center;
+}
+
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── WORKS ── */
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.work-item {
+  background: var(--bg);
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: background 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.work-item:hover { background: var(--bg2); }
+
+.work-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transition: transform 0.2s;
+  transform-origin: bottom;
+}
+
+.work-item:hover::before { transform: scaleY(1); }
+
+.work-title {
+  font-family: var(--serif-jp);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--white);
+  letter-spacing: 0.06em;
+}
+
+.work-title a:hover { color: var(--accent); transition: color 0.2s; }
+
+.work-meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+}
+
+.works-note {
+  margin-top: 24px;
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+  text-align: right;
+}
+
+/* ── MUSIC ── */
+.music-desc {
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: var(--text-mid);
+  margin-bottom: 36px;
+  font-style: italic;
+  font-family: var(--serif-jp);
+}
+
+.music-embeds {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.music-embeds iframe {
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  display: block;
+}
+
+/* ── WRITING ── */
+.writing-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-bottom: 24px;
+}
+
+.writing-item {
+  background: var(--bg);
+  padding: 20px 28px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  transition: background 0.2s;
+}
+
+.writing-item:hover { background: var(--bg2); }
+
+.writing-item a {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text);
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+  transition: color 0.2s;
+}
+
+.writing-item a:hover { color: var(--accent); }
+
+.writing-date {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+}
+
+.writing-more {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--text-mid);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.2s;
+}
+
+.writing-more:hover { color: var(--accent); }
+
+.writing-more::after {
+  content: '→';
+  font-size: 12px;
+}
+
+/* ── CONTACT ── */
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.contact-text {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 2;
+  color: var(--text-mid);
+  letter-spacing: 0.04em;
+}
+
+.contact-email {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-email-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.contact-email-addr {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+
+.contact-email-addr:hover { color: var(--accent); }
+
+.contact-quote {
+  font-family: var(--serif-en);
+  font-size: clamp(28px, 4vw, 44px);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--text-dim);
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.footer-name {
+  font-family: var(--serif-en);
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.16em;
+  color: var(--text-dim);
+}
+
+.footer-copy {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+
+  .hero { grid-template-columns: 1fr; min-height: 100svh; }
+  .hero-left { padding: 100px 24px 60px; justify-content: flex-end; }
+  .hero-right { position: absolute; inset: 0; z-index: 0; }
+  .hero-left { z-index: 2; }
+
+  section { padding: 80px 24px; }
+
+  .profile-body { grid-template-columns: 1fr; gap: 48px; }
+  .works-grid { grid-template-columns: 1fr; }
+  .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+  footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px; }
+}
+
+</style>
 </head>
 <body>
 
-  <div class="wrap">
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">Masaya Misono</div>
+  <ul class="nav-links">
+    <li><a href="#profile">Profile</a></li>
+    <li><a href="#works">Works</a></li>
+    <li><a href="#music">Music</a></li>
+    <li><a href="#writing">Writing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-    <header>
-      <div class="name-block">
-        <div class="name-en">MASAYA MISONO</div>
-        <div class="name-jp">御園 雅也</div>
-      </div>
-
-      <p>選曲・作曲・サウンドデザイン / AI × 音楽創造</p>
-
-      <div class="nav-buttons">
-        <a href="#profile">Profile</a>
-        <a href="#works">Works</a>
-        <a href="#music">Music</a>
-        <a href="#writing">Writing</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </header>
-
-    <section id="profile">
-      <img src="images/Art-Prof.jpg" class="profile" alt="御園雅也">
-      <h2>Profile</h2>
-      <p class="section-lead">
-        テレビドラマ・映画の選曲とサウンドデザインを軸に活動する音楽家。<br>
-        パッドによる音の立ち上がりと空気感の設計を武器に、
-        映像と音のあいだに「気配」を生み出し続けてきました。<br><br>
-        近年は、選曲判断の思考プロセスを AI に学習させる研究に取り組み、
-        人間と AI の音楽的共創を探求しています。
-      </p>
-
-      <div class="pill-row">
-        <span class="pill">選曲</span>
-        <span class="pill">作曲</span>
-        <span class="pill">音楽プロデュース</span>
-        <span class="pill">サウンドデザイン</span>
-        <span class="pill">AI × 音楽研究</span>
-      </div>
-
-      <!-- ▼ GPT CARD → Profile直下 ▼ -->
-      <div class="work-card">
-        <div class="work-card-title">
-          🎧 MISONO SELECT — Works Selection AI
-        </div>
-        <div class="work-card-label">Original GPT / 選曲AI</div>
-        <p>
-          映像の意図、心理の流れ、演出の呼吸を読み取り、
-          最適な音楽の方向性を即時に提案する AI アシスタント。
-          御園自身の選曲メソッドをもとに、音の「気配」をモデル化した実験です。
-        </p>
-
-        <a class="work-card-button"
-           href="https://chatgpt.com/g/g-68f0b98c89788191b363a71cfe63513b-misono-select-works-selection-ai"
-           target="_blank" rel="noopener">
-          OPEN GPT
-        </a>
-
-        <div class="small" style="margin-top:12px; line-height:1.55;">
-          使い方の例：<br>
-          ・「静かな緊張から一気に爆発する場面。低音を効かせて」<br>
-          ・「父と息子の和解。温かさと少しの寂しさを」<br>
-          ・「80年代 AOR 風ギターで爽やかな疾走感を」<br><br>
-          ※ご利用には ChatGPT アカウントが必要です。
-        </div>
-      </div>
-      <!-- ▲ GPT CARD ▲ -->
-    </section>
-
-    <section id="works">
-      <h2>Selected Works</h2>
-      <p class="section-lead">関わってきた主な作品</p>
-
-      <ul class="work-list">
-        <li><strong><a href="https://www.tbs.co.jp/VIVANT_tbs/" target="_blank" rel="noopener">VIVANT</a></strong>（TBS / 日曜劇場）</li>
-        <li><strong><a href="https://www.tbs.co.jp/hanzawa_naoki/" target="_blank" rel="noopener">半沢直樹</a></strong>（TBS / 日曜劇場）</li>
-        <li><strong><a href="https://www.tbs.co.jp/grandmaisontokyo/" target="_blank" rel="noopener">グランメゾン東京</a></strong>（TBS / 日曜劇場）</li>
-        <li><strong><a href="https://www.tbs.co.jp/rikuou_tbs/" target="_blank" rel="noopener">陸王</a></strong>（TBS / 日曜劇場）</li>
-        <li><strong><a href="https://www.tbs.co.jp/shitamachi_rocket/" target="_blank" rel="noopener">下町ロケット</a></strong>（TBS / 日曜劇場）</li>
-        <li><strong><a href="https://www.tbs.co.jp/hanadan/" target="_blank" rel="noopener">花より男子</a></strong>（TBS）</li>
-        <li><strong><a href="https://www.tbs.co.jp/ko_kyo/" target="_blank" rel="noopener">高校教師</a></strong>（TBS）</li>
-      </ul>
-
-      <p class="small">
-        ※このほか多数の作品に参加しています。詳細な作品歴については、お問い合わせください。
-      </p>
-    </section>
-
-    <section id="music">
-      <h2>Music</h2>
-      <p class="section-lead">再生ボタンから、音が届きます。</p>
-
-      <div class="embed">
-        <iframe width="100%" height="450" scrolling="no" frameborder="0" allow="autoplay"
-          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A8469991&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
-        </iframe>
-      </div>
-
-      <div class="embed">
-        <iframe style="border-radius:12px"
-          src="https://open.spotify.com/embed/playlist/2FdbcJWkDtE3wMxzvx7C9m?utm_source=generator"
-          width="100%" height="352" frameborder="0" allowfullscreen=""
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy">
-        </iframe>
-      </div>
-    </section>
-
-    <section id="writing">
-      <h2>Writing</h2>
-      <p class="section-lead">note の最新記事がここに更新されます。</p>
-      <ul id="note-articles"><li>読み込み中…</li></ul>
-      <p class="small">
-        その他の記事は <a href="https://note.com/mm24000" target="_blank" rel="noopener">note プロフィール</a> へ。
-      </p>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p class="section-lead">お仕事のご相談はこちらへ</p>
-      <div class="small">
-        メール：<a href="mailto:mm24000@gmail.com">mm24000@gmail.com</a>
-      </div>
-    </section>
-
-    <footer>&copy; 2025 Masaya Misono</footer>
-
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Music for Drama &amp; Screen</div>
+    <div class="hero-name-en">Masaya<br>Misono</div>
+    <div class="hero-name-jp">御園　雅也</div>
+    <div class="hero-role">
+      <div class="hero-role-item">選曲・サウンドデザイン</div>
+      <div class="hero-role-item">作曲・音楽プロデュース</div>
+      <div class="hero-role-item">AI × 音楽創造</div>
+    </div>
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      <div class="hero-scroll-text">Scroll</div>
+    </div>
   </div>
+  <div class="hero-right">
+    <div class="hero-image"></div>
+  </div>
+</div>
 
-  <!-- note RSS 最新記事読込 -->
-  <script>
-  async function loadNoteRSS() {
-    const rssUrl = "https://note.com/mm24000/rss";
-    const apiUrl = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(rssUrl);
+<!-- PROFILE -->
+<section id="profile">
+  <div class="section-header reveal">
+    <span class="section-num">01</span>
+    <span class="section-title-en">Profile</span>
+    <span class="section-title-jp">プロフィール</span>
+  </div>
+  <div class="profile-body">
+    <div class="profile-text reveal">
+      <p>テレビドラマ・映画の選曲とサウンドデザインを軸に活動する音楽家。パッドによる音の立ち上がりと空気感の設計を武器に、映像と音のあいだに「気配」を生み出し続けてきました。</p>
+      <p>近年は、選曲判断の思考プロセスをAIに学習させる研究に取り組み、人間とAIの音楽的共創を探求しています。</p>
+      <div class="profile-tags">
+        <span class="profile-tag">選曲</span>
+        <span class="profile-tag">作曲</span>
+        <span class="profile-tag">音楽プロデュース</span>
+        <span class="profile-tag">サウンドデザイン</span>
+        <span class="profile-tag">AI × 音楽研究</span>
+      </div>
+    </div>
+    <div class="profile-aside reveal">
+      <div class="profile-aside-title">MISONO SELECT</div>
+      <div class="profile-aside-desc">映像の意図、心理の流れ、演出の呼吸を読み取り、最適な音楽の方向性を即時に提案するAIアシスタント。</div>
+      <ul class="profile-aside-examples">
+        <li>「静かな緊張から一気に爆発する場面。低音を効かせて」</li>
+        <li>「父と息子の和解。温かさと少しの寂しさを」</li>
+        <li>「80年代AOR風ギターで爽やかな疾走感を」</li>
+      </ul>
+      <a href="https://chatgpt.com/g/g-68f0b98c89788191b363a71cfe63513b-misono-select-works-selection-ai" target="_blank" class="btn-ghost">Open GPT →</a>
+    </div>
+  </div>
+</section>
 
-    try {
-      const res = await fetch(apiUrl);
-      const json = await res.json();
-      const items = json.items || [];
-      const list = document.getElementById("note-articles");
-      list.innerHTML = "";
+<!-- WORKS -->
+<section id="works">
+  <div class="section-header reveal">
+    <span class="section-num">02</span>
+    <span class="section-title-en">Selected Works</span>
+    <span class="section-title-jp">主要作品</span>
+  </div>
+  <div class="works-grid reveal">
+    <div class="work-item">
+      <div class="work-title"><a href="https://www.tbs.co.jp/VIVANT_tbs/" target="_blank">VIVANT</a></div>
+      <div class="work-meta">TBS / 日曜劇場</div>
+    </div>
+    <div class="work-item">
+      <div class="work-title"><a href="https://www.tbs.co.jp/hanzawa_naoki/" target="_blank">半沢直樹</a></div>
+      <div class="work-meta">TBS / 日曜劇場</div>
+    </div>
+    <div class="work-item">
+      <div class="work-title"><a href="https://www.tbs.co.jp/grandmaisontokyo/" target="_blank">グランメゾン東京</a></div>
+      <div class="work-meta">TBS / 日曜劇場</div>
+    </div>
+    <div class="work-item">
+      <div class="work-title"><a href="https://www.tbs.co.jp/rikuou_tbs/" target="_blank">陸王</a></div>
+      <div class="work-meta">TBS / 日曜劇場</div>
+    </div>
+    <div class="work-item">
+      <div class="work-title"><a href="https://www.tbs.co.jp/shitamachi_rocket/" target="_blank">下町ロケット</a></div>
+      <div class="work-meta">TBS / 日曜劇場</div>
+    </div>
+    <div class="work-item">
+      <div class="work-title"><a href="https://www.tbs.co.jp/hanadan/" target="_blank">花より男子</a></div>
+      <div class="work-meta">TBS</div>
+    </div>
+    <div class="work-item">
+      <div class="work-title"><a href="https://www.tbs.co.jp/ko_kyo/" target="_blank">高校教師</a></div>
+      <div class="work-meta">TBS</div>
+    </div>
+    <div class="work-item" style="opacity:0.4; pointer-events:none;">
+      <div class="work-title" style="font-size:12px; color: var(--text-dim);">+ 多数</div>
+      <div class="work-meta">お問い合わせください</div>
+    </div>
+  </div>
+</section>
 
-      items.slice(0, 10).forEach(item => {
-        const date = new Date(item.pubDate);
-        const li = document.createElement("li");
-        li.innerHTML = `
-          <a href="${item.link}" target="_blank" rel="noopener"
-             style="color: var(--accent); font-size:0.9rem; text-decoration:none;">
-            ${item.title}
-          </a>
-          <small class="date">${date.toLocaleDateString("ja-JP")}</small>
-        `;
-        list.appendChild(li);
-      });
+<!-- MUSIC -->
+<section id="music">
+  <div class="section-header reveal">
+    <span class="section-num">03</span>
+    <span class="section-title-en">Music</span>
+    <span class="section-title-jp">音楽</span>
+  </div>
+  <div class="music-desc reveal">再生ボタンから、音が届きます。</div>
+  <div class="music-embeds reveal">
+    <iframe
+      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%3Aplaylists%3A8469991&color=%23c8a96e&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"
+      height="166">
+    </iframe>
+    <iframe
+      src="https://open.spotify.com/embed/playlist/2FdbcJWkDtE3wMxzvx7C9m?utm_source=generator&theme=0"
+      height="152">
+    </iframe>
+  </div>
+</section>
 
-      if (!items.length) {
-        list.innerHTML = "<li>記事がありません。</li>";
-      }
-    } catch(e) {
-      console.error(e);
-      document.getElementById("note-articles").innerHTML =
-        "<li>note記事を読み込めませんでした。</li>";
+<!-- WRITING -->
+<section id="writing">
+  <div class="section-header reveal">
+    <span class="section-num">04</span>
+    <span class="section-title-en">Writing</span>
+    <span class="section-title-jp">note</span>
+  </div>
+  <div class="writing-list reveal" id="noteList">
+    <div class="writing-item">
+      <span style="font-size:13px; color:var(--text-dim); font-family:var(--mono); font-size:11px; letter-spacing:0.08em;">読み込み中…</span>
+    </div>
+  </div>
+  <a href="https://note.com/mm24000" target="_blank" class="writing-more reveal">note プロフィールへ</a>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header reveal">
+    <span class="section-num">05</span>
+    <span class="section-title-en">Contact</span>
+    <span class="section-title-jp">お問い合わせ</span>
+  </div>
+  <div class="contact-inner">
+    <div class="reveal">
+      <div class="contact-text">お仕事のご相談、コラボレーションのご提案など、お気軽にご連絡ください。</div>
+      <div class="contact-email">
+        <div class="contact-email-label">Email</div>
+        <a href="mailto:mm24000@gmail.com" class="contact-email-addr">mm24000@gmail.com</a>
+      </div>
+    </div>
+    <div class="contact-quote reveal">
+      "音が鳴る<br>理由を<br>つくる。"
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Masaya Misono</div>
+  <div class="footer-copy">© 2025 Masaya Misono. All rights reserved.</div>
+</footer>
+
+<script>
+// ── NAV scroll ──
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ── Reveal on scroll ──
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in-view');
+      observer.unobserve(e.target);
     }
-  }
-  document.addEventListener("DOMContentLoaded", loadNoteRSS);
-  </script>
+  });
+}, { threshold: 0.12 });
 
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── note RSS ──
+async function loadNote() {
+  const list = document.getElementById('noteList');
+  try {
+    const res = await fetch(
+      'https://api.rss2json.com/v1/api.json?rss_url=https://note.com/mm24000/rss'
+    );
+    const data = await res.json();
+    if (!data.items?.length) throw new Error();
+
+    list.innerHTML = data.items.slice(0, 4).map(item => {
+      const date = new Date(item.pubDate).toLocaleDateString('ja-JP', {
+        year: 'numeric', month: '2-digit', day: '2-digit'
+      });
+      return `
+        <div class="writing-item">
+          <a href="${item.link}" target="_blank">${item.title}</a>
+          <span class="writing-date">${date}</span>
+        </div>`;
+    }).join('');
+  } catch {
+    list.innerHTML = `<div class="writing-item">
+      <a href="https://note.com/mm24000" target="_blank">note で記事を読む</a>
+    </div>`;
+  }
+}
+
+loadNote();
+</script>
 </body>
 </html>
